@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { IProduct } from "@/type";
 import ProductList from "@/components/ProductList";
 import { useCartStore } from "@/store/useCartStore";
+import Image from "next/image";
 
 
 
@@ -32,11 +33,13 @@ export const ProductPage = ({ product, relatedProducts }:{ product: IProduct, re
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
           {/* Product Image */}
           <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-center bg-[#f5f5f5] rounded-lg overflow-hidden h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px]">
-              <img
+            <div className="flex items-center justify-center bg-[#f5f5f5] rounded-lg overflow-hidden h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] relative">
+              <Image
                 src={product.image}
                 alt={product.title}
-                className="w-full h-full object-contain p-4 md:p-8"
+                fill
+                className="object-contain p-4 md:p-8"
+                priority
               />
             </div>
           </div>

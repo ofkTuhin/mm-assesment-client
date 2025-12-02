@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 interface CarouselSlide {
   id: string;
@@ -53,10 +54,12 @@ export const Carousel = ({
             }`}
           >
             {/* Background Image */}
-            <img
+            <Image
               src={slide.image}
               alt={slide.title || `Slide ${index + 1}`}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority={index === 0}
             />
             
             {/* Content Overlay - Styled to match the uploaded image */}

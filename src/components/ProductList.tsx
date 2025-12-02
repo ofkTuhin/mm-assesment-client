@@ -6,6 +6,7 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 import { useCartStore } from '@/store/useCartStore'
 import { FaEye, FaShoppingCart } from 'react-icons/fa'
+import Image from 'next/image'
 
 const ProductList = ({products}:{products: IProduct[]}) => {
     const { addToCart } = useCartStore();
@@ -32,10 +33,11 @@ const ProductList = ({products}:{products: IProduct[]}) => {
 
             {/* Product Image */}
             <div className="w-[80px] relative md:w-[150px] h-[80px] md:h-[150px] flex justify-center items-center overflow-hidden">
-              <img
+              <Image
                 src={product.image}
                 alt={product.title}
-                className="object-contain w-full h-full"
+                fill
+                className="object-contain"
               />
               
               {/* Buttons - Appear on Hover */}

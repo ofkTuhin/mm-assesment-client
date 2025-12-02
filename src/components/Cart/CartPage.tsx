@@ -56,11 +56,12 @@ export const CartPage = (): JSX.Element => {
                   <CardContent className="p-4 md:p-6">
                     <div className="flex flex-col sm:flex-row gap-4">
                       {/* Product Image */}
-                      <div className="flex-shrink-0 w-full sm:w-24 md:w-32 h-32 bg-[#f5f5f5] rounded-lg overflow-hidden">
-                        <img
+                      <div className="flex-shrink-0 w-full sm:w-24 md:w-32 h-32 bg-[#f5f5f5] rounded-lg overflow-hidden relative">
+                        <Image
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-full object-contain p-2"
+                          fill
+                          className="object-contain p-2"
                         />
                       </div>
 

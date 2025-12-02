@@ -5,6 +5,7 @@ import { useCartStore } from "@/store/useCartStore";
 import { Button } from "@/components/ui/button";
 import { FaPlus, FaMinus, FaTrash, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -71,11 +72,12 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps): JSX.Element =>
                 {cart.map((item) => (
                   <div key={item.id} className="flex gap-3 pb-4 border-b">
                     {/* Product Image */}
-                    <div className="flex-shrink-0 w-20 h-20 bg-[#f5f5f5] rounded-lg overflow-hidden">
-                      <img
+                    <div className="flex-shrink-0 w-20 h-20 bg-[#f5f5f5] rounded-lg overflow-hidden relative">
+                      <Image
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-contain p-2"
+                        fill
+                        className="object-contain p-2"
                       />
                     </div>
 
