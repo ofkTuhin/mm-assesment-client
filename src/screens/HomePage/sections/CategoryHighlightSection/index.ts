@@ -1,0 +1,1 @@
+export { CategoryHighlightSection } from "./CategoryHighlightSection";

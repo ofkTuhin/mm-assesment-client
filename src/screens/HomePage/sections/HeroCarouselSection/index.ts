@@ -1,0 +1,1 @@
+export { HeroCarouselSection } from "./HeroCarouselSection";
