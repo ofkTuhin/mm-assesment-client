@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { IProduct } from "@/type";
 import ProductList from "@/components/ProductList";
+import { useCartStore } from "@/store/useCartStore";
 
 
 
@@ -14,6 +15,12 @@ import ProductList from "@/components/ProductList";
 export const ProductPage = ({ product, relatedProducts }:{ product: IProduct, relatedProducts: IProduct[]}): JSX.Element => {
   const [quantity, setQuantity] = useState(1);
   const [isFavorite, setIsFavorite] = useState(false);
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    // Optionally show a success message or notification
+  };
 
 
 
@@ -98,7 +105,10 @@ export const ProductPage = ({ product, relatedProducts }:{ product: IProduct, re
               </div>
 
               {/* Add to Cart Button */}
-              <Button className="flex-1 h-11 md:h-12 bg-[#14adb6] hover:bg-[#14adb6]/90 text-white text-base md:text-lg font-semibold flex items-center justify-center gap-2">
+              <Button 
+                onClick={handleAddToCart}
+                className="flex-1 h-11 md:h-12 bg-[#14adb6] hover:bg-[#14adb6]/90 text-white text-base md:text-lg font-semibold flex items-center justify-center gap-2"
+              >
                 <ShoppingCart size={18} className="md:w-5 md:h-5" />
                 <span className="hidden sm:inline">Add to Cart</span>
                 <span className="sm:hidden">Add</span>

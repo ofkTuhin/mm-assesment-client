@@ -59,6 +59,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
+          "var(--font-roboto)",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",

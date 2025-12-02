@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FaChevronDown as ChevronDownIcon,
   FaHeadphones as HeadphonesIcon,
@@ -9,15 +11,20 @@ import {
 import { CiShoppingCart as ShoppingCartIcon } from "react-icons/ci";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import { Input } from "../../../../components/ui/input";
+import { useCartStore } from "@/store/useCartStore";
+import { CartDrawer } from "@/components/Cart";
 
 export const Header = (): JSX.Element => {
+  const { getTotalItems } = useCartStore();
+  const cartItemsCount = getTotalItems();
+  const [isCartOpen, setIsCartOpen] = useState(false);
   return (
-    <header className="w-full bg-[#02474c] px-4 md:px-8 lg:px-16 py-4">
-      <div className="flex flex-col gap-3 mx-auto max-w-[1400px]">
+    <header className="w-full bg-[#02474c] px-4 md:px-8 lg:px-16 py-4 sticky top-0 z-50">
+      <div className="flex flex-col gap-3 mx-auto ">
         {/* Top Row - Logo and Icons on Mobile, Full Layout on Desktop */}
         <div className="flex items-center justify-between gap-4">
           {/* Logo - Always visible */}
@@ -34,7 +41,7 @@ export const Header = (): JSX.Element => {
               <div className="absolute top-[33px] sm:top-[41px] left-[19px] sm:left-[26px] w-[5px] sm:w-[7px] h-[5px] sm:h-[7px] bg-white rounded-[3.5px]" />
               <div className="absolute top-[33px] sm:top-[41px] left-8 sm:left-11 w-[5px] sm:w-[7px] h-[5px] sm:h-[7px] bg-white rounded-[3.5px]" />
               <div className="absolute top-0 left-[45px] sm:left-[60px] w-[5px] sm:w-[7px] h-[5px] sm:h-[7px] bg-white rounded-[3.5px]" />
-              <div className="absolute top-[7px] sm:top-[9px] left-[70px] sm:left-[94px] h-5 sm:h-6 flex items-center justify-center [font-family:'Acme',Helvetica] font-normal text-white text-[14px] sm:text-[19px] tracking-[0] leading-[normal]">
+              <div className="absolute top-[7px] sm:top-[9px] left-[70px] sm:left-[94px] h-5 sm:h-6 flex items-center justify-center font-normal text-white text-[14px] sm:text-[19px] tracking-[0] leading-[normal]">
                 store
               </div>
             </div>
@@ -91,13 +98,16 @@ export const Header = (): JSX.Element => {
             </Button>
             <Button
               variant="ghost"
+              onClick={() => setIsCartOpen(true)}
               className="flex items-center gap-0.5 hover:bg-transparent p-1.5 sm:p-2"
             >
               <div className="relative">
                 <ShoppingCartIcon size={20} className="sm:w-6 sm:h-6 text-white" />
-                <Badge className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center p-0 bg-transparent border-0 font-normal text-[#fcdd3b] text-[12px] sm:text-[15px]">
-                  3
-                </Badge>
+                {cartItemsCount > 0 && (
+                  <Badge className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 flex items-center justify-center p-0 bg-transparent border-0 font-normal text-[#fcdd3b] text-[12px] sm:text-[15px]">
+                    {cartItemsCount}
+                  </Badge>
+                )}
               </div>
               <span className="hidden md:inline font-normal text-white text-[15px] tracking-[0] leading-[normal] ml-1">
                 Cart
@@ -128,6 +138,9 @@ export const Header = (): JSX.Element => {
           </div>
         </div>
       </div>
+
+      {/* Cart Drawer */}
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };

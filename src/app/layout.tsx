@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Roboto, Acme } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/screens/HomePage/sections/Header";
 import { FooterSection } from "@/screens/HomePage/sections/FooterSection";
 
 const roboto = Roboto({
-  weight: "400",
+  weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
-});
-
-const acme = Acme({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-acme",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${acme.variable} antialiased`}>
+      <body className={`${roboto.variable} font-sans antialiased`}>
         <Header />
         {children}
         <FooterSection />

@@ -19,7 +19,7 @@ export const CategoryHighlightSection = (): JSX.Element => {
             className="flex items-center gap-2 sm:gap-2.5 md:gap-3 px-1.5 sm:px-2 md:px-[7px] py-1.5 sm:py-2 md:py-[7px] rounded-lg hover:bg-[#0e3b3d]/80 h-auto"
           >
             <MenuIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-[13.24px] md:h-[12.27px] text-white" />
-            <span className="[font-family:'Century_Gothic-Regular',Helvetica] font-normal text-white text-xs sm:text-sm md:text-base lg:text-[17px] tracking-[0] leading-[normal]">
+            <span className="font-normal text-white text-xs sm:text-sm md:text-base lg:text-[17px] tracking-[0] leading-[normal]">
               Browse By Category
             </span>
           </Button>
@@ -28,7 +28,7 @@ export const CategoryHighlightSection = (): JSX.Element => {
             <Button
               key={index}
               variant="ghost"
-              className="[font-family:'Century_Gothic-Regular',Helvetica] font-normal text-white text-[10px] sm:text-xs md:text-[13px] tracking-[0] leading-[normal] hover:bg-[#0e3b3d]/80 h-auto px-0"
+              className="font-normal text-white text-[10px] sm:text-xs md:text-[13px] tracking-[0] leading-[normal] hover:bg-[#0e3b3d]/80 h-auto px-0"
             >
               {item.label}
             </Button>

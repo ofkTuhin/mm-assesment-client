@@ -13,7 +13,7 @@ export const ProductListSection = async() => {
     {/* Title */}
 
       <div className="flex w-full  items-center px-4 md:px-0 mb-6">
-      <h2 className="w-full [font-family:'Century_Gothic-Regular',Helvetica] font-normal text-xl md:text-[28px]">
+      <h2 className="w-full font-normal text-xl md:text-[28px]">
         <span className="text-[#00c9d6]">New </span>
         <span className="text-black">Arrivals</span>
       </h2>

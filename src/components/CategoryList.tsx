@@ -15,7 +15,7 @@ const CategoryList = ({categories}:{categories:ICategory[]}) => {
   return (
      <div className="flex-col w-full  items-center pmd:px-0 my-6" >
          <div className="flex-shrink-0">
-        <h2 className="[font-family:'Roboto',Helvetica] font-normal text-xl md:text-[28px] tracking-[0] leading-[normal]">
+        <h2 className="font-normal text-xl md:text-[28px] tracking-[0] leading-[normal]">
           <span className="text-[#00c9d6]">Best </span>
           <span className="text-[#212425]">Deals</span>
         </h2>
@@ -29,7 +29,7 @@ const CategoryList = ({categories}:{categories:ICategory[]}) => {
             className="flex flex-col items-center gap-[11px] relative group"
           >
             <span
-              className={`[font-family:'Roboto',Helvetica] font-normal text-sm md:text-[19px] tracking-[0] leading-[35px] whitespace-nowrap ${
+              className={`font-normal text-sm md:text-[19px] tracking-[0] leading-[35px] whitespace-nowrap ${
                 activeCategory === category.name ? "text-[#00c9d6]" : "text-black"
               }`}
             >
