@@ -2,7 +2,7 @@ export const fetchApi= async (endPoint:string) => {
   console.log({endPoint})
   try {
     // https://fakestoreapi.com
-    const response = await fetch(`http://localhost:5001/api/v1/${endPoint}`,{
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${endPoint}`,{
         cache:"no-cache"
     });
     
