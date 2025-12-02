@@ -14,7 +14,7 @@ export const CategoryListSection = async () => {
           <span className="text-black">Categories</span>
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-          {categoryData.map((category: ICategory) => (
+          {categoryData?.map((category: ICategory) => (
             <Card key={category.id} className="hover:shadow-lg transition-shadow rounded-full">
               <CardContent className="p-3 sm:p-4 md:p-5 flex items-center justify-center rounded-full">
                 <h3 className="text-sm sm:text-base md:text-lg font-semibold text-center">{category.name.toLocaleUpperCase()}</h3>

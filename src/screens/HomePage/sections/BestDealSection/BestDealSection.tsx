@@ -12,7 +12,7 @@ export const BestDealSection =async ({category}:{category:string}) => {
 
   const products= await fetchApi(`products/category/${category|| "electronics"}`) as IProduct[];
   const categories= await fetchApi(`products/categories`) as ICategory[]; 
-  console.log({categories})
+
 
 
 

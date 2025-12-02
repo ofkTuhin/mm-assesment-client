@@ -8,7 +8,7 @@ const ProductList = ({products}:{products: IProduct[]}) => {
   return (
 
      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full  gap-3 md:gap-4 lg:gap-6">
-      {products.map((product, index) => (
+      {products?.map((product, index) => (
         <Card
           key={index}
           className="flex flex-col items-center bg-white p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition border border-[#00000021]"
