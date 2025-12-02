@@ -8,7 +8,7 @@ import CategoryList from "@/components/CategoryList";
 
 
 
-export const BestDealSection =async ({category}:{category:string}) => {
+export const CategoryProduct =async ({category}:{category:string}) => {
 
   const products= await fetchApi(`products/category/${category|| "electronics"}`) as IProduct[];
   const categories= await fetchApi(`products/categories`) as ICategory[]; 

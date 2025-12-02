@@ -4,7 +4,7 @@ import { ProductListSection } from "./sections/ProductListSection";
 import { CategoryHighlightSection } from "./sections/CategoryHighlightSection";
 import { CategoryListSection } from "./sections/CategoryListSection";
 import { HeroCarouselSection } from "./sections/HeroCarouselSection";
-import { BestDealSection } from "./sections/BestDealSection";
+import { CategoryProduct } from "./sections/CategoryProduct";
 
 
 export const HomePage = async ({
@@ -22,7 +22,7 @@ export const HomePage = async ({
 
       <ProductListSection />
 
-      <BestDealSection  category={category}/>
+      <CategoryProduct  category={category}/>
 
     </div>
   );
