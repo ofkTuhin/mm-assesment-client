@@ -22,7 +22,7 @@ const CategoryList = ({categories}:{categories:ICategory[]}) => {
       </div>
 
       <nav className="flex items-center gap-2 md:gap-[11px] flex-1 overflow-x-auto">
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <button
             key={category.id}
             onClick={() => handleCategory(category.name)}
