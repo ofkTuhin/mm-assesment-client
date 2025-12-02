@@ -5,6 +5,7 @@ import { Card, CardContent } from './ui/card'
 import { Button } from './ui/button'
 import Link from 'next/link'
 import { useCartStore } from '@/store/useCartStore'
+import { FaEye, FaShoppingCart } from 'react-icons/fa'
 
 const ProductList = ({products}:{products: IProduct[]}) => {
     const { addToCart } = useCartStore();
@@ -20,7 +21,7 @@ const ProductList = ({products}:{products: IProduct[]}) => {
       {products?.map((product, index) => (
         <Card
           key={index}
-          className="flex flex-col items-center bg-white p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition border border-[#00000021]"
+          className="flex flex-col items-center bg-white p-3 md:p-4 rounded-lg shadow-sm hover:shadow-md transition border border-[#00000021] group relative"
         >
           <CardContent className="flex flex-col items-center gap-3 p-0 w-full">
 
@@ -36,7 +37,28 @@ const ProductList = ({products}:{products: IProduct[]}) => {
                 alt={product.title}
                 className="object-contain w-full h-full"
               />
-              <Link href={`/product/${product.id}`} className="absolute inset-0" />
+              
+              {/* Buttons - Appear on Hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
+                {/* View Button */}
+                <Link href={`/product/${product.id}`}>
+                  <Button 
+                    className="bg-white hover:bg-white/90 text-[#14adb6] rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg"
+                    size="icon"
+                  >
+                    <FaEye className="w-3 h-3 md:w-4 md:h-4" />
+                  </Button>
+                </Link>
+                
+                {/* Add to Cart Button */}
+                <Button 
+                  onClick={() => handleAddToCart(product)}
+                  className="bg-[#14adb6] hover:bg-[#14adb6]/90 text-white rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg"
+                  size="icon"
+                >
+                  <FaShoppingCart className="w-3 h-3 md:w-4 md:h-4" />
+                </Button>
+              </div>
             </div>
 
             {/* Price */}
