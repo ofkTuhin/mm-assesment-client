@@ -1,10 +1,19 @@
+"use client"
 import { IProduct } from '@/type'
 import React from 'react'
 import { Card, CardContent } from './ui/card'
 import { Button } from './ui/button'
 import Link from 'next/link'
+import { useCartStore } from '@/store/useCartStore'
 
 const ProductList = ({products}:{products: IProduct[]}) => {
+    const { addToCart } = useCartStore();
+  
+    const handleAddToCart = (product:IProduct) => {
+      addToCart(product, 1);
+      // Optionally show a success message or notification
+    };
+  
   return (
 
      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 w-full  gap-3 md:gap-4 lg:gap-6">
@@ -16,7 +25,7 @@ const ProductList = ({products}:{products: IProduct[]}) => {
           <CardContent className="flex flex-col items-center gap-3 p-0 w-full">
 
             {/* Title */}
-            <div className="text-[#034e53] text-xs md:text-sm font-normal [font-family:'Century_Gothic-Regular',Helvetica] text-center">
+            <div className="text-[#034e53] text-xs md:text-sm font-normal text-center">
               {product.title}
             </div>
 
@@ -31,12 +40,12 @@ const ProductList = ({products}:{products: IProduct[]}) => {
             </div>
 
             {/* Price */}
-            <div className="text-[#0aaeb8] text-sm md:text-[15px] font-normal [font-family:'Century_Gothic-Regular',Helvetica]">
+            <div className="text-[#0aaeb8] text-sm md:text-[15px] font-normal">
               {product.price}
             </div>
 
             {/* Button */}
-            <Button className="w-full h-[32px] md:h-[36px] text-xs md:text-sm bg-[#14adb6] hover:bg-[#14adb6]/90 text-white rounded-md">
+            <Button className="w-full h-[32px] md:h-[36px] text-xs md:text-sm bg-[#14adb6] hover:bg-[#14adb6]/90 text-white rounded-md" onClick={() => handleAddToCart(product)}>
               Add to cart
             </Button>
           </CardContent>

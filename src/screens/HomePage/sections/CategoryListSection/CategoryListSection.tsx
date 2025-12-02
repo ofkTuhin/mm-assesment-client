@@ -9,7 +9,7 @@ export const CategoryListSection = async () => {
   return (
     <section className="w-full flex items-center justify-center py-4 sm:py-6 md:py-8 bg-[linear-gradient(180deg,rgba(243,237,201,1)_0%,rgba(255,255,255,0)_100%)]">
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 mt-2 sm:mt-3 md:mt-4">
-        <h2 className="w-full [font-family:'Century_Gothic-Regular',Helvetica] font-normal text-lg sm:text-xl md:text-2xl lg:text-[28px] mb-4 sm:mb-5 md:mb-6">
+        <h2 className="w-full font-normal text-lg sm:text-xl md:text-2xl lg:text-[28px] mb-4 sm:mb-5 md:mb-6">
           <span className="text-[#00c9d6]">Featured </span>
           <span className="text-black">Categories</span>
         </h2>
